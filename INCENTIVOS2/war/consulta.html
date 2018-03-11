@@ -1,0 +1,73 @@
+<html>
+<head>
+  <meta charset="UTF-8"/>
+  <title> CONSULTA OBJETIVOS </title> 
+  
+  <script>
+	  function validar() {
+		  var numero, let, letras, formato;
+		  letras = 'TRWAGMYFPDXBNJZSQVHLCKET';  
+		  formato = /^\d{8}[a-zA-Z]$/;
+		  dni = document.forms["formulario"]["dni"].value;
+
+		  if(formato.test(dni)){
+		     numero = dni.substr(0, dni.length-1);
+		     let = dni.substr(dni.length-1, 1);
+		     numero = numero % 23;
+		     letras=letras.substring(numero, numero+1);
+		     if (letras!=let) {
+		       alert("Formato erroneo, recuerde poner la letra en mayuscula y todos los digitos seguidos");
+		       return false;
+		     }
+		     else
+		       return true;
+		  }
+		  else{
+		     alert("Formato erroneo, recuerde poner la letra en mayuscula y sin espacios");
+		     return false;
+		  }
+		}
+  </script>
+  
+  
+</head> 
+
+<body>
+  <header>
+  	<table>
+  		<tr>
+  			<td><img src="samsung.png"></img></td>
+  			<td><h1>Consulta</h1></td> 
+  		</tr>
+  	</table>
+  </header>
+
+  <nav class="main" id="n1">
+    <a href="index.html">Inicio</a>
+  
+  <a href="consulta.html">Consulta</a>
+  </nav>
+
+  <section class="main" id="s1">
+  	<h1>Consulta</h1>
+  	<h2></h2>
+	 <form name="formulario" action="consulta" method="post">
+	  <table>
+	  
+	   <tr>
+	    <td>DNI: </td>
+	    <td><input type="text" name="dni"></td>
+	   </tr>
+	   <tr>
+	    <td><input type="submit" name="enviar" value="submit" onClick="return validar();"></td>
+	   </tr>
+	  </table>
+	 </form>
+  </section>
+
+  <footer class="main" id="f1">
+    <a href="www.randstad.com/"> </a>
+    En caso de duda, enviar email a <a href="mailto:epozueco.samsung@randstad.es">Eva Pozueco</a>
+  </footer>
+</body> 
+</html>
